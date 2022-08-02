@@ -1,0 +1,23 @@
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express Server RESTful API</title>
+  <link rel="stylesheet" href="./style.css">
+<body>
+  <div class="wrapper">
+    <form action="http://localhost:8080/api/productos" method="post" >
+      <h2>Product</h2>
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" placeholder="Titulo">
+      <label for="price">Price</label>
+      <input type="text" id="price" name="price" placeholder="Precio">
+      <label for="thumbnail">Thumbnail</label>
+      <input type="text" id="thumbnail" name="thumbnail" placeholder="Thumbnail URL">
+      <!-- <input type="file" accept=".jpg,.jpeg,.png,.webp,.gif" id="thumbnail" name="thumbnail" placeholder="Miniatura" class="selectFiles"> -->
+      <input type="submit" value="Submit" class="button">
+    </form>
+  </div>
+</body>
+</html>
