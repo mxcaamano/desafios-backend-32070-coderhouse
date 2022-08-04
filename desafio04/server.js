@@ -23,21 +23,26 @@ routerProductos.get('/', async(req, res) => {
 
 routerProductos.get('/:id', async (req, res) => {
     const id = parseInt(req.params.id);
-    res.json(await contenedor.getById(id));
-    // .then(data => { res.json(data) })
-    // .catch(err => { res.status(500).json(err)})
+    const producto = await contenedor.getById(id)
+    producto 
+    ? res.json(producto) 
+    : res.status(400).json({ error: 'No se encuentra el producto' });
 })
 
 routerProductos.post('/', async (req, res) => {
-    console.log(req.body)
     const producto = req.body;
-    producto.price = parseFloat(producto.price)
-    res.json(await contenedor.save(producto))
+    producto.title && producto.price && producto.thumbnail
+    ? (producto.price = parseFloat(producto.price), res.json(await contenedor.save(producto)))
+    : res.status(400).json({ error: 'Se requiere titulo, precio y url de imagen' });
 })
 
-// routerProductos.put('/:id', (req, res) => {
-//     contenedor.
-// })
+routerProductos.put('/:id', async (req, res) => {
+    const { id } = req.params
+    const { title, price, thumbnail } = req.body
+    title && price && thumbnail 
+    ? res.json(await contenedor.updateById({title, price, thumbnail, id: parseInt(id)}))
+    : res.status(400).json({ error: 'Se requiere titulo, precio y url de imagen' });
+})
 
 routerProductos.delete('/:id', async(req, res) => {
     await contenedor.deleteById(parseInt(req.params.id))

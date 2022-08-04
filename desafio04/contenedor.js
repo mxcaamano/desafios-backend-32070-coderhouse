@@ -5,6 +5,12 @@ class Contenedor {
         this.ruta = ruta
     }
 
+    async #readFileFunction(ruta){
+        let archivo = await fs.readFile(ruta, 'utf8')
+        let archivoParseado = await JSON.parse(archivo)
+        return archivoParseado
+    }
+
     async save(obj){
         try {
             let data = await fs.readFile(this.ruta, 'utf8');
@@ -39,6 +45,24 @@ class Contenedor {
         }
     }
 
+    async updateById(obj){
+        try {
+            let data = await this.#readFileFunction(this.ruta);
+            console.log(data)
+            const objIndex = data.findIndex(prod => prod.id === obj.id)
+            if(objIndex !== -1){
+                data[objIndex] = obj
+                await fs.writeFile(this.ruta, JSON.stringify(data, null, 2)) 
+                return {mensaje: 'Producto actualizado' }
+            }
+            else {
+                return {error: 'No existe el producto'}
+            }
+        } catch (error) {
+            console.log(error)            
+        }
+    }
+
     async getAll(){
         try {
             let data = await fs.readFile(this.ruta, 'utf8');
@@ -46,9 +70,6 @@ class Contenedor {
             return dataParse.length 
             ? dataParse
             : console.log("No hay productos")
-            // dataParse.length 
-            // ? console.log(dataParse)
-            // : console.log("No hay productos")
         } 
         catch (error) {
             console.log(error);
@@ -66,7 +87,6 @@ class Contenedor {
                 console.log('Producto eliminado');
             }
             else{
-                // return null;
                 console.log("No existe el producto");
             }
             
@@ -87,7 +107,6 @@ class Contenedor {
         catch (error) {
             console.log(error)
         }
-        
     }
 }
 
