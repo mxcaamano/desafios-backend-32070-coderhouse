@@ -1,5 +1,6 @@
-const express = require('express')
-const { Router } = express
+const express = require('express');
+const { Router } = express;
+const pug = require('pug')
 const Contenedor = require("./contenedor");
 const contenedor = new Contenedor('./productos.txt');
 const app = express();
@@ -10,7 +11,11 @@ const server = app.listen(PORT, ()=>{
     console.log(`Escuchando en el puerto ${server.address().port}`)
 })
 
-app.use('/', express.static('public'));
+
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+app.use(express.static('public'));
 
 app.use('/api/productos', routerProductos);
 routerProductos.use(express.json());
@@ -18,7 +23,13 @@ routerProductos.use(express.urlencoded({extended: false}));
 
 routerProductos.get('/', async(req, res) => {
     const productos = await contenedor.getAll();
-    res.send( productos );
+    let state = null
+    productos ? state = true : state = false
+    res.render('index', {listExist: state, list: productos} );
+})
+
+routerProductos.get('/add', async(req, res) => {
+    res.render('form.pug');
 })
 
 routerProductos.get('/:id', async (req, res) => {
