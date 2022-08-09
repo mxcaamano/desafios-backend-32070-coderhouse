@@ -1,0 +1,19 @@
+PUT http://localhost:8080/api/productos/3 HTTP/1.1
+content-type: application/json
+
+{
+    "price": 2111110,
+    "thumbnail": "https://imagen.com/imagssssen.png"
+}
+
+# POST http://localhost:8080/api/productos/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "title": "producto prueba POST",
+#     "price": 342,
+#     "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_925228-MLA49727654203_042022-F.webp"
+# }
+
+# DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+# content-type: application/json
