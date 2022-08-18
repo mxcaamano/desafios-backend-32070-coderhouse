@@ -3,6 +3,8 @@ const { Server: IOServer } = require('socket.io');
 const { Router } = express;
 const Contenedor = require("./contenedor");
 const contenedor = new Contenedor('./productos.txt');
+const contenedorChats = new Contenedor('./chats.txt');
+const formatDate = require("./formatDate");
 const app = express();
 const routerProductos = Router();
 
@@ -17,7 +19,8 @@ app.set('views', './views')
 
 app.use(express.static('public'));
 
-app.use('/api/productos', routerProductos);
+app.use('/', routerProductos);
+// app.use('/api/productos', routerProductos);
 routerProductos.use(express.json());
 routerProductos.use(express.urlencoded({extended: false}));
 
@@ -64,7 +67,7 @@ routerProductos.get('/', async(req, res) => {
 
 io.on('connection', async socket => {
     const products = await contenedor.getAll();
-    // const chats = [{from:'support@example.com', text:'hola, en que puedo ayudarte?', date: Date() }]
+    const chat = await contenedorChats.getAll();
     
     console.log('New user connected: ', socket.id)
 
@@ -82,16 +85,17 @@ io.on('connection', async socket => {
     
     socket.emit('message-server', message)
 
-    // const chatMsg = {
-    //     id: socket.id,
-    //     chats
-    //   }
-    //   socket.on('add-msg', data => {
-    //     const msg = {...data, date: Date()}
-    //     chats.push(msg)
-    //     io.sockets.emit( 'arrMsg' ,chatMsg)
-    //   })
-    //   socket.emit('arrMsg', chatMsg)
+    const chatMsg = {
+        id: socket.id,
+        chat
+      }
+      socket.on('add-msg', async data => {
+        const msg = {...data, date: formatDate(new Date())}
+        chat.push(msg)
+        await contenedorChats.save(msg)
+        io.sockets.emit( 'arrMsg' ,chatMsg)
+      })
+      socket.emit('arrMsg', chatMsg)
 
     socket.on('disconnect', () => {
         console.log('usuario desconectado: ', socket.id)

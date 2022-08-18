@@ -1,5 +1,7 @@
 const socket = io().connect()
 
+// Render de Producto
+
 const render = (data) => {
     const listadoProductos = document.querySelector('#products')
     const html = data.map(product =>    `<div class="col">
@@ -14,7 +16,6 @@ const render = (data) => {
                                             </div>
                                             </div>
                                         </div>`)
-
     listadoProductos.innerHTML = html
 }
 
@@ -22,7 +23,6 @@ socket.on('message-server', data => {
     render(data.products)
 })
 
-// function add product from form
 const addProduct = (e) => {   
     const title = document.querySelector('#title').value
     const price = document.querySelector('#price').value
@@ -32,30 +32,40 @@ const addProduct = (e) => {
         price,
         thumbnail
     }
-    console.log(product)
-    socket.emit('add-product', product)
-    return false
+    if(product.title && product.price && product.thumbnail){
+        socket.emit('add-product', product)
+        return false
+    }
+    else{
+        alert('Complete los datos requeridos: Titulo, Precio y URL de imagen')
+    }
 }
 
-// const renderMsg = (data) => {
-//     let container = document.getElementById('chat-container')
-//     let html = data.map(el => `<li>
-//       <em> ${el.date} </em>
-//       <strong style='color:blue'> ${el.from}: </strong>
-//       <p style='color:brown'>${el.text}</p> 
-//       </li> `)
-//     container.innerHTML = html
-//   }
+// Render de Chat
 
-// socket.on('arrMsg', data => {
-//     renderMsg(data.chats)
-//   } )
+const renderMsgs = (data) => {
+    let chatcontainer = document.querySelector('#chat-container')
+    let html = data.map(msg => `<li class="p-3">
+      <strong style='color:blue'> ${msg.from} </strong>
+      <em style='color:brown'> ${msg.date} : </em>
+      <p class="fst-italic" style='color:green'>${msg.text}</p> 
+      </li> `)
+    chatcontainer.innerHTML = html
+  }
+
+socket.on('arrMsg', data => {
+    renderMsgs(data.chat)
+  } )
   
-//   const addMessage = (e) => {
-//     let email = document.getElementById('email').value
-//     let text = document.getElementById('text').value
-//     const chatMsg = {from:email, text}
-//     console.log(chatMsg)
-//     socket.emit('add-msg', chatMsg)
-//     return false
-//   }
+  const addMessage = (e) => {
+    let email = document.getElementById('email').value
+    let text = document.getElementById('text').value
+    const chatMsg = {from:email, text}
+    if(chatMsg.from && chatMsg.text){
+        socket.emit('add-msg', chatMsg)
+        return false
+    }
+    else{
+        alert('Complete los datos requeridos: Email y Mensaje')
+    }
+  }

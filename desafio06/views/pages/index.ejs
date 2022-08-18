@@ -14,16 +14,12 @@
 </head>
 <body class="deer-theme-dark">
     <div class="container py-3">
-        <h2 class="fw-bold">Productos</h2>
-
-        <%- include('../partials/chat.ejs')%>
-
-        <%- include('../partials/formAdd.ejs')%>
-        
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3" id="products">
-    <!-- <% if(listExist){ %>
+        <h2>Productos</h2>
+        <%- include('../partials/formAdd.ejs')%>        
+    <% if(listExist){ %>
         <% list.forEach(obj => { %>
-            <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3" id="products">
+            <!-- <div class="col">
               <div class="card shadow-sm bg-black">
                 <img src=<%= obj.thumbnail %> alt="" class="bd-placeholder-img card-img-top productIMG" width="100%" height="225">
                 <div class="card-body">
@@ -34,7 +30,8 @@
                   <p class="card-text h5">Precio: <%= obj.price %> U$S</p>
                 </div>
               </div>
-            </div>
+            </div> -->
+        </div>
         <% })%>
         <%}else{%>
             <div className="card-body cart">
@@ -42,12 +39,13 @@
                 <h4>No hay productos!</h4>
                 </div>
             </div>
-        <%}%> -->
-    </div>
+        <%}%>
+        <%- include('../partials/chat.ejs')%>
+    </div>    
     <!-- <a href="/api/productos/add">
     <button class="btn-view">Añadir productos</button>
     </a> -->
-    </div>
+    
 <%- include('../partials/footer.ejs')%>
 <script src="/index.js"></script>
 </body>

@@ -1,0 +1,8 @@
+[
+  {
+    "from": "BOTmartin@deercryptoshop.com",
+    "text": "Hola, bienvenido al chat! En que puedo ayudarte?",
+    "date": "17/08/2022 21:04:20",
+    "id": 1
+  }
+]
