@@ -1,10 +1,18 @@
 const express = require('express');
 const { Server: IOServer } = require('socket.io');
 const { Router } = express;
+
+// Contenedor y conexion con DB
 const Contenedor = require("./contenedor");
-const contenedor = new Contenedor('./productos.txt');
-const contenedorChats = new Contenedor('./chats.txt');
+const { optionsSqlite3 } = require('./sqlite3/conexionDB')
+const { optionsMariaDB } = require('./mariaDB/conexionDB')
+const knexSqlite3 = require('knex')( optionsSqlite3 )
+const knexMariaDB = require('knex')( optionsMariaDB )
+const contenedorProds = new Contenedor(knexMariaDB);
+const contenedorChats = new Contenedor(knexSqlite3);
+
 const formatDate = require("./formatDate");
+
 const app = express();
 const routerProductos = Router();
 
@@ -26,7 +34,7 @@ routerProductos.use(express.urlencoded({extended: false}));
 
 // Endpoints
 routerProductos.get('/', async(req, res) => {
-    const productos = await contenedor.getAll();
+    const productos = await contenedorProds.getAll();
     let state = null
     productos ? state = true : state = false
     res.render('pages/index', {listExist: state, list: productos} );
@@ -66,7 +74,7 @@ routerProductos.get('/', async(req, res) => {
 //WebSockets
 
 io.on('connection', async socket => {
-    const products = await contenedor.getAll();
+    const products = await contenedorProds.getAll();
     const chat = await contenedorChats.getAll();
     
     console.log('New user connected: ', socket.id)
@@ -79,7 +87,7 @@ io.on('connection', async socket => {
 
     socket.on('add-product', async product => {
         products.push(product)
-        await contenedor.save(product)
+        await contenedorProds.save(product)
         io.sockets.emit('message-server', message)
     })
     

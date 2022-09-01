@@ -1,4 +1,3 @@
-
 class Contenedor {
     constructor(knex, table){
         this.knex = knex
@@ -19,8 +18,9 @@ class Contenedor {
 
     async getById(id){
         try {
-            const response = await knex.from(table).select('*').where('id', '=', id)
-            console.log(response)
+            const response = await this.knex(this.table).select('*').where('id', '=', id)
+            console.log(`Producto: ${response} `)
+            return response
         } catch (error) {
             console.log(error)
         }
@@ -31,67 +31,52 @@ class Contenedor {
 
     async updateById(obj){
         try {
-            let data = await this.#readFileFunction(this.ruta);
-            console.log(data)
-            const objIndex = data.findIndex(prod => prod.id === obj.id)
-            if(objIndex !== -1){
-                data[objIndex] = obj
-                await fs.writeFile(this.ruta, JSON.stringify(data, null, 2)) 
-                return {mensaje: 'Producto actualizado' }
-            }
-            else {
-                return {error: 'No existe el producto'}
-            }
+            const response = await this.knex(this.table).where('id', '=', id).update(obj)
+            console.log(`Producto actualizado: ${response} `)
+            return response
         } catch (error) {
-            console.log(error)            
+            console.log(error)
+        }
+        finally {
+            this.knex.destroy()
         }
     }
 
     async getAll(){
         try {
-            let data = await fs.readFile(this.ruta, 'utf8');
-            let dataParse = JSON.parse(data);
-            return dataParse.length 
-            ? dataParse
-            : console.log("No hay productos")
-        } 
-        catch (error) {
-            console.log(error);
+            const response = await this.knex.from(this.table).select('*')
+            console.log(response)
+            return response
+        } catch (error) {
+            console.log(error)
+        }
+        finally {
+            this.knex.destroy()
         }
     }
 
-    async deleteById(number){
+    async deleteById(id){
         try {
-            let data = await fs.readFile(this.ruta, 'utf8');
-            let dataParse = JSON.parse(data);
-            let found = dataParse.find(found => found.id === number )
-            if (found){
-                let dataParseFilter = dataParse.filter(found => found.id !== number)
-                await fs.writeFile(this.ruta, JSON.stringify(dataParseFilter, null, 2), 'utf8')
-                console.log('Producto eliminado');
-            }
-            else{
-                console.log("No existe el producto");
-            }
-            
-        } 
-        catch (error) {
+            await this.knex.from(this.table).where('id', '=', id).del()
+            console.log('Dato Eliminado')
+        } catch (error) {
             console.log(error)
+        }
+        finally{
+            this.knex.destroy()
         }
     }
 
     async deleteAll(){
         try {
-            let data = await fs.readFile(this.ruta, 'utf8');
-            let dataParse = JSON.parse(data);
-            dataParse.length 
-            ? (await fs.writeFile(this.ruta, JSON.stringify([])), console.log(`${dataParse.length} Productos eliminados`)) 
-            : console.log("No hay productos para eliminar.")    
-        } 
-        catch (error) {
+            await this.knex(this.table).del()
+            console.log('Datos Eliminados')
+        } catch (error) {
             console.log(error)
+        }
+        finally{
+            this.knex.destroy()
         }
     }
 }
-
 module.exports = Contenedor;
