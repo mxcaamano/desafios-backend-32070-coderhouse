@@ -1,31 +1,47 @@
+const fs = require('fs').promises;
 
 class Contenedor {
-    constructor(knex, table){
-        this.knex = knex
-        this.table = table
+    constructor(ruta){
+        this.ruta = ruta
+    }
+
+    async #readFileFunction(ruta){
+        let archivo = await fs.readFile(ruta, 'utf8')
+        let archivoParseado = await JSON.parse(archivo)
+        return archivoParseado
     }
 
     async save(obj){
         try {
-            await this.knex(this.table).insert(obj)
-            console.log('Datos Añadidos')
+            let data = await fs.readFile(this.ruta, 'utf8');
+            let dataParse = JSON.parse(data);
+            dataParse.length 
+            ? await fs.writeFile(this.ruta, JSON.stringify([...dataParse, { ...obj, id: dataParse[dataParse.length - 1].id + 1 }], null, 2)) 
+            : await fs.writeFile(this.ruta, JSON.stringify([{...obj, id: 1}], null, 2));
+            console.log(`El Producto tiene el ID: ${dataParse.length + 1}`);
         } catch (error) {
-            console.log(error)
+            console.log(error)            
         }
-        finally{
-            this.knex.destroy()
-        }
+        
     }
 
-    async getById(id){
+    async getById(number){
         try {
-            const response = await knex.from(table).select('*').where('id', '=', id)
-            console.log(response)
-        } catch (error) {
+            let data = await fs.readFile(this.ruta, 'utf8');
+            let dataParse = JSON.parse(data);
+            let found = dataParse.find(found => found.id === number )
+            if (found){
+                console.log(found);
+                return found
+            }
+            else{
+                console.log("No se encuentra el producto");
+                return null;
+            }
+            
+        } 
+        catch (error) {
             console.log(error)
-        }
-        finally {
-            this.knex.destroy()
         }
     }
 

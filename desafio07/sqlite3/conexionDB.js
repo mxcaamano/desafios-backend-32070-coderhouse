@@ -1,9 +1,9 @@
-const options = {
+const optionsSqlite3 = {
     client: 'sqlite3',
     connection: {
-        filename: '../ecommerce/mydb.sqlite',
+        filename: './ecommerce/mydb.sqlite',
     },
     useNullAsDefault: true
 }
 
-module.exports = { options }
+module.exports = { optionsSqlite3 }
