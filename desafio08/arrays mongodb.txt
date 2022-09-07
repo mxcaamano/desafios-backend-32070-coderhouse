@@ -1,0 +1,105 @@
+[
+  {
+    from: "BOTmartin@deercryptoshop.com",
+    text: "Hola, bienvenido al chat! En que puedo ayudarte?",
+    date: "17/08/2022 21:04:20"
+  },
+  {
+    from: "martin@deercryptoshop.com",
+    text: "Hola, este es un mensaje de prueba",
+    date: "17/08/2022 21:08:18"
+  },
+  {
+    from: "BOTmartin@deercryptoshop.com",
+    text: "Este es otro mensaje de prueba de un Bot (?",
+    date: "17/08/2022 21:09:00"
+  },
+  {
+    from: "german@deercryptoshop.com",
+    text: "Hola!, estoy probando el chat con otro usuario",
+    date: "17/08/2022 21:11:35"
+  },
+  {
+    from: "martin@deercryptoshop.com",
+    text: "Funciona bien el chat?",
+    date: "17/08/2022 21:13:12"
+  },
+  {
+    from: "martin@deercryptoshop.com",
+    text: "Se guardarán correctamente los mensajes. en mongodb?",
+    date: "17/08/2022 21:15:24"
+  },
+  {
+    from: "BOTmartin@deercryptoshop.com",
+    text: "Hola, bienvenido al chat! En que puedo ayudarte?",
+    date: "17/08/2022 21:24:20"
+  },
+  {
+    from: "martin@deercryptoshop.com",
+    text: "Otro mensaje de prueba!",
+    date: "17/08/2022 21:25:53"
+  },
+  {
+    from: "german@deercryptoshop.com",
+    text: "Más mensajes de prueba!",
+    date: "17/08/2022 21:27:41"
+  },
+  {
+    from: "martin@deercryptoshop.com",
+    text: "último mensaje de prueba para el desafio08",
+    date: "17/08/2022 21:29:16"
+  },
+]
+
+[
+  {
+    title: "Rig de Criptominería con 6 Placas de Vídeo 570",
+    price: 3265,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/6_blanco1-9c056b88f44b92613216226461576135-640-0.jpg"
+  },
+  {
+    title: "Rig de Minería con 6 Placas de Vídeo 6700 XT",
+    price: 4622,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/151-abbffb894bba8d0afb16479713850479-480-0.png"
+  },
+  {
+    title: "PLACA DE VIDEO RTX 3060 TI PNY LHR",
+    price: 715,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/0091-20840379ad0d23eefb16506356391616-1024-1024.jpg"
+  },
+  {
+    title: "PLACA DE VIDEO RX 6800 16GB GDDR6 Phantom Gaming D OC",
+    price: 1045,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/tn41-94d973b07be25d982616498795595915-1024-1024.jpg"
+  },
+  {
+    title: "PLACA DE VIDEO RTX 3090 24GB GDDR6X VISION OC",
+    price: 1740,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/11-e6284227646314848016498776108853-1024-1024.png"
+  },
+  {
+    title: "PLACA DE VIDEO RX 5700 XT 8GB Taichi X OC",
+    price: 740,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/0061-b426f3c1b7988bdc2d16506353304573-1024-1024.jpg"
+  },
+  {
+    title: "RX 580 ASROCK PHANTOM GAMING 8GB OC EDITION",
+    price: 400,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/001-45b89e346c4c2ac84216534191181481-1024-1024.jpg"
+  },
+  {
+    title: "ASIC Antminer S19J Pro 104T",
+    price: 4100,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/whatsapp-image-2022-03-18-at-6-02-57-pm1-4d67ec622c9f74356e16476380014026-480-0.jpeg"
+  },
+  {
+    title: "ASIC WhatsMiner M30S 84 T",
+    price: 3657,
+    thumbnail: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/487/042/products/m30s11-54e9282ae31bc29a7d16476424645846-480-0.png"
+  },
+  {
+    title: "Mother Asrock H110 Pro Btc+ Mineria Eth 13 Gpu",
+    price: 880,
+    thumbnail: "https://http2.mlstatic.com/D_NQ_NP_943856-MLA44050579770_112020-O.webp"
+  }
+]
