@@ -6,7 +6,7 @@ const fakerGen = async () => {
     const product = {
       title: faker.commerce.productName(),
       price: faker.commerce.price(),
-      thumbnail: faker.image.image()
+      thumbnail: faker.image.people()
     }
     array.push(product)
   }

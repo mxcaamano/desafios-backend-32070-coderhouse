@@ -1,10 +1,9 @@
 const { normalize, schema } = require("normalizr")
 const Contenedor = require('../containers/contenedor')
-const contenedor = new Contenedor('./src/db/chats.txt')
+const contenedor = new Contenedor('./src/db/messages.txt')
 // const messagesModel = require("../db/models/messages.models")
 
 const getMessages = async (req, res) => {
-
   const authorSchema = new schema.Entity('author', {} ,{ idAttribute: 'id' })
   const commentSchema = new schema.Entity('contents')
   const messageSchema = [{
@@ -14,10 +13,13 @@ const getMessages = async (req, res) => {
 
   try {
     const Msgs = await contenedor.getAll()
-    console.log(JSON.stringify(Msgs).length)
     const normalizedMsgs = normalize(Msgs, messageSchema)
-    console.log(JSON.stringify(normalizedMsgs).length)
-    res.status(200).json(normalizedMsgs)
+    console.log(`Sin normalizar ${JSON.stringify(Msgs).length} caracteres`)
+    console.log(`Normalizado ${JSON.stringify(normalizedMsgs).length} caracteres`)
+    const compPerc = ((1-JSON.stringify(normalizedMsgs).length/JSON.stringify(Msgs).length)*100).toFixed(0)
+    console.log(`Porcentaje de compresion: ${compPerc}%`)
+    // res.status(200).json(normalizedMsgs)
+    res.render('pages/index', {compression: compPerc});
   } catch(error){
     res.status(401).json({error: error.message})
   }

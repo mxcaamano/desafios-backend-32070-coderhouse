@@ -1,8 +1,11 @@
 const express = require('express');
 const { Server: IOServer } = require('socket.io');
-const connectMongo = require('./src/db/connection');
+// const connectMongo = require('./src/db/connection');
 const routerTest = require('./src/routes/test.router');
 const routerMsgs = require('./src/routes/messages.router');
+
+const Contenedor = require('./src/containers/contenedor')
+const contenedorChats = new Contenedor('./src/db/messages.txt')
 
 const app = express();
 
@@ -26,39 +29,35 @@ app.use('/api/mensajes', routerMsgs);
 
 //WebSockets
 
-// io.on('connection', async socket => {
-//     const products = await contenedorProds.getAll();
-//     const chat = await contenedorChats.getAll();
+io.on('connection', async socket => {
+    const chat = await contenedorChats.getAll();
     
-//     console.log('New user connected: ', socket.id)
+    console.log('New user connected: ', socket.id)
 
-//     const message = {
-//         id: socket.id,
-//         message: 'Welcome to the app',
-//         products
-//     }
+    const message = {
+        id: socket.id,
+        message: 'Welcome to the app',
+        chat
+    }
 
-//     socket.on('add-product', async product => {
-//         products.push(product)
-//         await contenedorProds.save(product)
-//         io.sockets.emit('message-server', message)
-//     })
-    
-//     socket.emit('message-server', message)
+    socket.emit('message-server', message)
 
-//     const chatMsg = {
-//         id: socket.id,
-//         chat
-//       }
-//       socket.on('add-msg', async data => {
-//         const msg = {...data, date: formatDate(new Date())}
-//         chat.push(msg)
-//         await contenedorChats.save(msg)
-//         io.sockets.emit( 'arrMsg' ,chatMsg)
-//       })
-//       socket.emit('arrMsg', chatMsg)
+    const chatMsg = {
+        id: socket.id,
+        chat
+      }
+      socket.on('add-msg', async data => {
+        // const msg = {...data, date: formatDate(new Date())}
+        const msg = data
+        chat.push(msg)
+        await contenedorChats.save(msg)
+        io.sockets.emit( 'arrMsg' ,chatMsg)
+      })
+      socket.emit('arrMsg', chatMsg)
 
-//     socket.on('disconnect', () => {
-//         console.log('usuario desconectado: ', socket.id)
-//     })
-// })
+    socket.on('disconnect', () => {
+        console.log('usuario desconectado: ', socket.id)
+    })
+})
+
+module.exports = io
