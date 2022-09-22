@@ -1,0 +1,83 @@
+[
+  {
+    "author": {
+      "id": "BOTmartin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "BOT",
+      "edad": 0,
+      "alias": "TinchoBOT"
+    },
+    "text": "Hola, bienvenido al chat! En que puedo ayudarte?"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho"
+    },
+    "text": "Hola, este es un mensaje de prueba"
+  },
+  {
+    "author": {
+      "id": "BOTmartin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "BOT",
+      "edad": 0,
+      "alias": "TinchoBOT"
+    },
+    "text": "Este es otro mensaje de prueba de un Bot (?"
+  },
+  {
+    "author": {
+      "id": "german@deercryptoshop.com",
+      "nombre": "German",
+      "apellido": "Caamaño",
+      "edad": 31,
+      "alias": "Ger"
+    },
+    "text": "Hola!, estoy probando el chat con otro usuario"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho"
+    },
+    "text": "Funciona bien el chat?"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho"
+    },
+    "text": "Se guardarán correctamente los mensajes. en mongodb?"
+  },
+  {
+    "author": {
+      "id": "german@deercryptoshop.com",
+      "nombre": "German",
+      "apellido": "Caamaño",
+      "edad": 31,
+      "alias": "Ger"
+    },
+    "text": "Más mensajes de prueba!"
+  },
+  {
+    "author": {
+      "id": "mceee@outlook.com",
+      "name": "Martin",
+      "lastName": "Caamaño",
+      "age": 26,
+      "alias": "Sledge",
+      "avatar": "http://asdadasdas.com/sdsad.png"
+    },
+    "text": "Holaaaa"
+  }
+]

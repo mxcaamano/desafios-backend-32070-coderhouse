@@ -1,10 +1,8 @@
 const express = require('express');
 const { Server: IOServer } = require('socket.io');
+const connectMongo = require('./src/db/connection');
 const routerTest = require('./src/routes/test.router');
-
-// Contenedor y conexion con DB
-
-const formatDate = require("./formatDate");
+const routerMsgs = require('./src/routes/messages.router');
 
 const app = express();
 
@@ -13,6 +11,7 @@ const server = app.listen(PORT, ()=>{
     console.log(`Escuchando en el puerto ${server.address().port}`)
 })
 const io = new IOServer(server)
+// connectMongo()
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -23,45 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use('/api/productos-test', routerTest);
-
-// Endpoints
-// routerProductos.get('/', async(req, res) => {
-//     const productos = await contenedorProds.getAll();
-//     let state = null
-//     productos ? state = true : state = false
-//     res.render('pages/index', {listExist: state, list: productos} );
-// })
-
-// routerProductos.get('/add', async(req, res) => {
-//     res.render('pages/form');
-// })
-
-// routerProductos.get('/:id', async (req, res) => {
-//     const id = parseInt(req.params.id);
-//     const producto = await contenedor.getById(id)
-//     producto 
-//     ? res.json(producto) 
-//     : res.status(400).json({ error: 'No se encuentra el producto' });
-// })
-
-// routerProductos.post('/', async (req, res) => {
-//     const producto = req.body;
-//     producto.title && producto.price && producto.thumbnail
-//     ? (producto.price = parseFloat(producto.price), res.json(await contenedor.save(producto)))
-//     : res.status(400).json({ error: 'Se requiere titulo, precio y url de imagen' });
-// })
-
-// routerProductos.put('/:id', async (req, res) => {
-//     const { id } = req.params
-//     const { title, price, thumbnail } = req.body
-//     title && price && thumbnail 
-//     ? res.json(await contenedor.updateById({title, price, thumbnail, id: parseInt(id)}))
-//     : res.status(400).json({ error: 'Se requiere titulo, precio y url de imagen' });
-// })
-
-// routerProductos.delete('/:id', async(req, res) => {
-//     await contenedor.deleteById(parseInt(req.params.id))
-// })
+app.use('/api/mensajes', routerMsgs);
 
 //WebSockets
 
