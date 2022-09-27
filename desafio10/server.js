@@ -17,7 +17,10 @@ app.use(session({
     }),
     secret: '123456',
     resave: false,
-    saveUninitializaed: false
+    saveUninitializaed: false,
+    cookie: {
+        maxAge: 10000,
+      },
 }))
 
 //Conexion DB 
