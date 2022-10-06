@@ -1,0 +1,15 @@
+<div class="container my-3">
+    <form onsubmit="return addMessage(this)">
+      <input class="form-control w-25 p-1 mb-3" type="email" required placeholder="Correo Electrónico" id="email" disabled value=<%= user %>>
+      <input class="form-control w-25 p-1 mb-3" type="text"required placeholder="Alias" id="alias" value="usuarioAlias"/>
+      <input class="form-control w-25 p-1 mb-3" type="url" placeholder="Url Avatar https://example.com/ex.png" pattern="https://.*"  id="avatar" value="https://gravatar.com/avatar/813510d383a8d3c66b0fe1ba6562ce64?s=400&d=robohash&r=x"/>
+      <input class="form-control w-25 p-1 mb-3" type="text"required placeholder="Nombre" id="nombre" value="nomUsuario"/>
+      <input class="form-control w-25 p-1 mb-3" type="text"required placeholder="Apellido" id="apellido" value="apUsuario"/>
+      <input class="form-control w-25 p-1 mb-3" type="number" min=18 required placeholder="Edad" id="edad" value="99"/>
+      <input class="form-control w-25 p-1 mb-3" type="text" placeholder="Mensaje" id="text" />
+      <button class="btn-tema p-2 mt-3">Enviar</button>
+    </form>
+    <div class="container m-1 my-3 w-75 bg-white form-control">
+      <ul class="list-unstyled p-2" id="chat-container"></ul>
+    </div>
+</div>
