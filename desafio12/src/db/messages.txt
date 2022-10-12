@@ -1,0 +1,266 @@
+[
+  {
+    "author": {
+      "id": "BOTmartin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "BOT",
+      "edad": 0,
+      "alias": "TinchoBOT",
+      "avatar": "https://gravatar.com/avatar/341ef9aea7379739b6ba2610e0305ad9?s=400&d=robohash&r=x"
+    },
+    "text": "Hola, este es un mensaje de prueba"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Hola, este es un mensaje de prueba"
+  },
+  {
+    "author": {
+      "id": "BOTmartin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "BOT",
+      "edad": 0,
+      "alias": "TinchoBOT",
+      "avatar": "https://gravatar.com/avatar/341ef9aea7379739b6ba2610e0305ad9?s=400&d=robohash&r=x"
+    },
+    "text": "Este es otro mensaje de prueba de un Bot (?"
+  },
+  {
+    "author": {
+      "id": "german@deercryptoshop.com",
+      "nombre": "German",
+      "apellido": "Caamaño",
+      "edad": 31,
+      "alias": "Ger",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/ssasss-avatars-driver-256x256.png"
+    },
+    "text": "Hola!, estoy probando el chat con otro usuario"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Funciona bien el chat?"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Se guardarán correctamente los mensajes. en mongodb?"
+  },
+  {
+    "author": {
+      "id": "german@deercryptoshop.com",
+      "nombre": "German",
+      "apellido": "Caamaño",
+      "edad": 31,
+      "alias": "Ger",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/ssasss-avatars-driver-256x256.png"
+    },
+    "text": "Más mensajes de prueba!"
+  },
+  {
+    "author": {
+      "id": "mcabdc@outlook.com",
+      "name": "Martin",
+      "lastName": "Abdc",
+      "age": 55,
+      "alias": "Mabdc",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Solomun-256x256.png"
+    },
+    "text": "Holaaaa!"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Hola, este es un mensaje de prueba"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "martin@deercryptoshop.com",
+      "nombre": "Martin",
+      "apellido": "Caamaño",
+      "edad": 26,
+      "alias": "Tincho",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Tony-256x256.png"
+    },
+    "text": "Mensaje de prueba para Normalizr"
+  },
+  {
+    "author": {
+      "id": "userprueba@prueba.com",
+      "nombre": "nomUsuario",
+      "apellido": "apUsuario",
+      "edad": "22",
+      "alias": "usuarioAlias",
+      "avatar": "https://gravatar.com/avatar/813510d383a8d3c66b0fe1ba6562ce64?s=400&d=robohash&r=x"
+    },
+    "text": "Mensaje de prueba desde form para normalizr"
+  },
+  {
+    "author": {
+      "id": "userprueba@prueba.com",
+      "nombre": "nomUsuario",
+      "apellido": "apUsuario",
+      "edad": "22",
+      "alias": "usuarioAlias",
+      "avatar": "https://gravatar.com/avatar/813510d383a8d3c66b0fe1ba6562ce64?s=400&d=robohash&r=x"
+    },
+    "text": "Mensaje de prueba desde form para normalizr"
+  },
+  {
+    "author": {
+      "id": "mcabdc@outlook.com",
+      "name": "Martin",
+      "lastName": "Abdc",
+      "age": 55,
+      "alias": "Mabdc",
+      "avatar": "https://a.rsg.sc/s/GTAO/n/GTAO-After-Hours-Solomun-256x256.png"
+    },
+    "text": "Holaaaa!"
+  },
+  {
+    "author": {
+      "id": "userprueba@prueba.com",
+      "nombre": "nomUsuario",
+      "apellido": "apUsuario",
+      "edad": "99",
+      "alias": "usuarioAlias",
+      "avatar": "https://gravatar.com/avatar/813510d383a8d3c66b0fe1ba6562ce64?s=400&d=robohash&r=x"
+    },
+    "text": "fddf"
+  }
+]
