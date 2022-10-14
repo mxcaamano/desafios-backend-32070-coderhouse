@@ -11,7 +11,6 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser(config.SECRET))
 const session = require('express-session');
 
-console.log(config.SECRET)
 //Persistencia de Sesion
 app.use(
     session({
@@ -34,10 +33,10 @@ const routerLogin = require('./src/routes/login.router');
 const routerLogout = require('./src/routes/logout.router');
 const routerSignUp = require('./src/routes/signUp.router');
 const routerInfo = require('./src/routes/info.router')
+const routerRandoms = require('./src/routes/randoms.router')
 
 //Contenedores
 const Contenedor = require('./src/containers/contenedor');
-const { SECRET } = require('./config');
 const contenedorChats = new Contenedor('./src/db/messages.txt')
 
 //Server
@@ -63,6 +62,7 @@ app.use('/login', routerLogin);
 app.use('/logout', routerLogout);
 app.use('/signUp', routerSignUp);
 app.use('/info', routerInfo);
+app.use('/api/randoms', routerRandoms);
 
 //WebSockets
 
