@@ -1,0 +1,13 @@
+{
+  "apps" : [{
+    "name": "8083",
+    "script": "server.js",
+    "args": ["8083","PM2"],
+    "instances": 1,
+    "watch": true,
+    "exec_mode": "cluster",
+    "env": {
+        "NODE_ENV": "development"
+    }
+  }]
+}

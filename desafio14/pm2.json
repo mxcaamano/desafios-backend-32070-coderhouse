@@ -1,0 +1,11 @@
+{
+    "apps" : [{
+      "name": "8080",
+      "script": "server.js",
+      "args": ["8080","PM2"],
+      "watch": true,
+      "env": {
+          "NODE_ENV": "development"
+      }
+    }]
+}
