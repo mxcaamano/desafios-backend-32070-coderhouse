@@ -5,6 +5,7 @@ require('dotenv').config();
 const config = require('./config');
 const cluster = require('cluster');
 const compression = require('compression')
+const logger = require('./src/utils/logger')
 
 // Sesiones, cookies y Passport
 const passport = require('passport');
@@ -88,36 +89,40 @@ app.use('/logout', routerLogout);
 app.use('/signUp', routerSignUp);
 app.use('/info', routerInfo);
 app.use('/api/randoms', routerRandoms);
+app.get("*", (req, res) => {
+  logger.warn(`La ruta ${req.path} ${req.method} no está implementada`);
+  res.status(404).json({message: `La ruta ${req.method} ${req.url} no está implementada`})
+})
 
 //WebSockets
 
-// io.on('connection', async socket => {
-//     const chat = await contenedorChats.getAll();
+io.on('connection', async socket => {
+    const chat = await contenedorChats.getAll();
     
-//     console.log('New user connected: ', socket.id)
+    console.log('New user connected: ', socket.id)
 
-//     const message = {
-//         id: socket.id,
-//         message: 'Welcome to the app',
-//         chat
-//     }
+    const message = {
+        id: socket.id,
+        message: 'Welcome to the app',
+        chat
+    }
 
-//     socket.emit('message-server', message)
+    socket.emit('message-server', message)
 
-//     const chatMsg = {
-//         id: socket.id,
-//         chat
-//       }
-//       socket.on('add-msg', async data => {
-//         // const msg = {...data, date: formatDate(new Date())}
-//         const msg = data
-//         chat.push(msg)
-//         await contenedorChats.save(msg)
-//         io.sockets.emit( 'arrMsg' ,chatMsg)
-//       })
-//       socket.emit('arrMsg', chatMsg)
+    const chatMsg = {
+        id: socket.id,
+        chat
+      }
+      socket.on('add-msg', async data => {
+        // const msg = {...data, date: formatDate(new Date())}
+        const msg = data
+        chat.push(msg)
+        await contenedorChats.save(msg)
+        io.sockets.emit( 'arrMsg' ,chatMsg)
+      })
+      socket.emit('arrMsg', chatMsg)
 
-//     socket.on('disconnect', () => {
-//         console.log('usuario desconectado: ', socket.id)
-//     })
-// })
+    socket.on('disconnect', () => {
+        console.log('usuario desconectado: ', socket.id)
+    })
+})

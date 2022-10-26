@@ -1,7 +1,9 @@
 const { fork } = require('child_process')
+const logger = require('../utils/logger')
 
 const getRandoms = (req, res) => {
     try {
+      logger.info(`Ruta: ${req.originalUrl}, Método: ${req.method}`)
       let { cant } = req.params;
       if (!cant) {
           cant = 100000000   
