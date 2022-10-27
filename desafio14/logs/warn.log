@@ -1001,3 +1001,4 @@
 {"level":"warn","message":"La ruta / GET no está implementada"}
 {"level":"warn","message":"La ruta / GET no está implementada"}
 {"level":"warn","message":"La ruta /favicon.ico GET no está implementada"}
+{"level":"warn","message":"La ruta /favicon.ico GET no está implementada"}
