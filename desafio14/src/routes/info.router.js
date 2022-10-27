@@ -3,7 +3,6 @@ const routerInfo = Router();
 const CPUqty = require('os').cpus().length;
 const logger = require('../utils/logger')
 
-//Ruta utilizada para probar no bloqueante
 // routerInfo.get('/', (req, res) => {
 //     logger.info(`Ruta: ${req.originalUrl}, Método: ${req.method}`)
 //     res.status(200).json({
