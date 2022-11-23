@@ -1,0 +1,17 @@
+<div class="container py-3">
+  <h2>CHAT</h2>
+  <h3>Bienvenido al chat!</h3>
+  <h4>Aqui se pueden enviar consultas!</h4>
+  <div class="container my-3">
+      <form onsubmit="return addMessage(this)">
+        <input class="form-control w-25 p-1 mb-3" type="text" required placeholder="Nombre" id="name" disabled value=<%= name %>>
+        <input class="form-control w-25 p-1 mb-3" type="email" required placeholder="Correo Electrónico" id="email" disabled value=<%= email %>>
+        <input class="form-control w-25 p-1 mb-3" type="text" required placeholder="Mensaje" id="text">
+        <input type="hidden" required id="avatar" disabled value=<%= imgURL %>>
+        <button class="btn-tema p-2 mt-3">Enviar</button>
+      </form>
+      <div class="container m-1 my-3 w-75 bg-white form-control">
+        <ul class="list-unstyled p-2" id="chat-container"></ul>
+      </div>
+  </div>
+</div>

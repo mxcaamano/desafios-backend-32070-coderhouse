@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <title>Deer Crypto Shop - Registro</title>
+</head>
+<body class="deer-theme-dark">
+    <div class="container mt-5 d-flex align-items-center flex-column">
+        <section class="w-50 p-4 d-flex align-items-center flex-column pb-4 card bordes-neon bg-black">
+          <h2 class="mb-5">Registrarse</h2>
+            <form action="/signUp" method="post" enctype="multipart/form-data" class="d-flex align-items-center flex-column" style="width: 22rem;">
+              <!-- Email input -->
+                <div class="form-outline mb-4">
+                <input type="email" id="email" name="email" class="form-control" required>
+                <label class="form-label" for="email" style="margin-left: 0px;">Email</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+                </div>      
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="password" name="password" class="form-control" required>
+                <label class="form-label" for="password" style="margin-left: 0px;">Contraseña</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+                </div>
+              <!-- Name input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="name" name="name" class="form-control" required>
+                <label class="form-label" for="name" style="margin-left: 0px;">Nombre</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+              </div>
+              <!-- Address input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="address" name="address" class="form-control" required>
+                <label class="form-label" for="address" style="margin-left: 0px;">Dirección</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+              </div>
+              <!-- Age input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="age" name="age" class="form-control" required>
+                <label class="form-label" for="age" style="margin-left: 0px;">Edad</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+              </div>
+              <!-- Phone input -->
+              <div class="form-outline mb-4">
+                <input type="tel" id="phone" name="phone" class="form-control" required><button type="button" class="p-1 btn-dwd" onclick="process(event)" title="Verificar">✓</button><br>
+                <label class="form-label" for="phone" style="margin-left: 0px;">Telefono</label><br>
+                <div class="alert alert-info" style="display: none;"></div>
+                <div class="alert alert-error danger" style="display: none;"></div>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+              </div>
+              <!-- Image input -->
+              <div class="form-outline mb-4">    
+                <input type="file" id="image" name="image" class="form-control" required>
+                <input type="hidden" id="imgURL" name="imgURL" class="form-control">
+                <label class="form-label" for="avatar" style="margin-left: 0px;">Subir avatar</label>
+                    <div class="form-notch">
+                        <div class="form-notch-leading" style="width: 9px;">
+                        </div>
+                        <div class="form-notch-middle" style="width: 88.8px;">
+                        </div>
+                        <div class="form-notch-trailing">
+                        </div>
+                    </div>
+              </div>
+              <button type="submit" class="btn-dwd mb-4">Registrarse</button>              
+            </form>
+            <a href="/login"><button class="btn-dwd mb-4">Ya estas registrado? Ingresa</button></a>
+          </section>
+    </div>
+</body>
+<script src="/intl-tel-input.js"></script>
+</html>
