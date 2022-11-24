@@ -32,8 +32,8 @@ app.use(
 app.use(compression())
 
 //Conexion DB 
-// const connectMongo = require('./src/db/connection');
-// connectMongo()
+const connectMongo = require('./src/db/connection');
+connectMongo()
 
 //Rutas
 const routes = require('./src/routes/index.router')
@@ -47,8 +47,8 @@ const methodOverride = require("method-override")
 app.use(methodOverride('_method'))
 
 //Contenedores
-const Contenedor = require('./src/containers/contenedor');
-const contenedorChats = new Contenedor('./src/db/messages.txt')
+const ContenedorArchivo = require('./src/containers/ContenedorArchivo');
+const contenedorChats = new ContenedorArchivo('./src/db/messages.txt')
 
 //Server
 let server

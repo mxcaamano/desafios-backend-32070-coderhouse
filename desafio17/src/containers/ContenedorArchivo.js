@@ -1,7 +1,8 @@
 const fs = require('fs').promises;
 const logger = require('../utils/logger')
+const { v4: uuidv4 } = require('uuid');
 
-class Contenedor {
+class ContenedorArchivo {
     constructor(ruta){
         this.ruta = ruta
     }
@@ -18,7 +19,7 @@ class Contenedor {
             let dataParse = JSON.parse(data);
             dataParse.length 
             ? await fs.writeFile(this.ruta, JSON.stringify([...dataParse, { ...obj }], null, 2)) 
-            : await fs.writeFile(this.ruta, JSON.stringify([{...obj }], null, 2));
+            : await fs.writeFile(this.ruta, JSON.stringify([{...obj, id: uuidv4() }], null, 2));
             logger.info(`Objeto guardado`);
         } catch (error) {
             logger.error(error)            
@@ -46,17 +47,18 @@ class Contenedor {
         }
     }
 
-    async updateById(obj){
+    async updateById(obj, props){
         try {
             let data = await this.#readFileFunction(this.ruta);
-            const objIndex = data.findIndex(prod => prod.id === obj.id)
-            if(objIndex !== -1){
-                data[objIndex] = obj
+            let found = {...data.find( e => e.id === obj), ...props};
+            if(found){
+                data = data.filter( e => e.id !== obj);
+                data.push(found)
                 await fs.writeFile(this.ruta, JSON.stringify(data, null, 2)) 
-                return {mensaje: 'objeto actualizado' }
+                logger.info('Objeto actualizado')
             }
             else {
-                return {error: 'No existe el objeto'}
+                logger.info('No se encuentra el objeto')
             }
         } catch (error) {
             logger.error(error)            
@@ -110,4 +112,4 @@ class Contenedor {
     }
 }
 
-module.exports = Contenedor;
+module.exports = ContenedorArchivo;

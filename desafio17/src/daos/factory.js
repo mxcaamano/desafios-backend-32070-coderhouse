@@ -1,8 +1,8 @@
-// const ProductosDaoArchivo = require('./productos/ProductosDaoArchivo.js');
+const ProductosDaoArchivo = require('./productos/ProductosDaoArchivo.js');
 // const ProductosDaoMemoria = require('./productos/ProductosDaoMemoria.js');
 const ProductosDaoMongodb = require('./productos/ProductosDaoMongodb.js');
 
-// const CarritosDaoArchivo = require('./carritos/CarritosDaoArchivo.js');
+const CarritosDaoArchivo = require('./carritos/CarritosDaoArchivo.js');
 // const CarritosDaoMemoria = require('./carritos/CarritosDaoMemoria.js');
 const CarritosDaoMongodb = require('./carritos/CarritosDaoMongodb.js');
 
@@ -13,8 +13,8 @@ switch (process.env.DATABASE) {
         break
 
     case 'file':
-        // exports.productsFactory = ProductosDaoArchivo;
-        // exports.cartsFactory = CarritosDaoArchivo;
+        exports.productsFactory = ProductosDaoArchivo;
+        exports.cartsFactory = CarritosDaoArchivo;
         break
 
     case 'mem':

@@ -16,7 +16,7 @@ const mail = 'shirley99@ethereal.email'
 const transporter = require('../utils/nodemailer.config')
 
 //twilio
-const sendMsg = require('../utils/twilio.config')
+// const sendMsg = require('../utils/twilio.config')
 
 const createCart = async (req, res) => {
     const user = await userModel.findOne({_id: req.session.passport.user});
@@ -81,7 +81,7 @@ const getCart = async (req, res) => {
         state = true;
         const qtyItems = cart.products.reduce((prev, curr) => prev + curr.qty, 0);
         const total = cart.products.reduce((prev, curr) => prev + curr.qty * curr.price, 0);
-        res.render('pages/cart', {list: cart.products, total: total, qtyItems: qtyItems, id_cart: cart._id})
+        res.render('pages/cart', {list: cart.products, total: total, qtyItems: qtyItems, id_cart: cart.id})
     }
     else{
         const cart = {email: user.email, address: user.address, products: [], timestamp: Date.now()}
@@ -107,13 +107,17 @@ const updateCart = async (req, res) => {
     //     cart = {email: user.email, address: user.address, products: [], timestamp: Date.now()}
     //     await containerCarts.save(cart)
     // }
-    const product = await containerProds.getNative(id_prod)
+    let product = null
+    process.env.DATABASE === 'file' 
+    ? product = await containerProds.getById(id_prod)
+    : product = await containerProds.getNative(id_prod)
+    console.log(product)
     if(product){
         product._id = id_prod
         product.id = cart.products.length + 1
         product.qty = parseInt(qty)
         cart.products.push(product)
-        await containerCarts.updateById(cart._id, {products: cart.products, timestamp: cart.timestamp})
+        await containerCarts.updateById(cart.id, {products: cart.products, timestamp: cart.timestamp})
         // res.status(200).json({ message: 'Producto añadido al carrito' })
         res.redirect('/carrito')
     }
@@ -183,8 +187,8 @@ const sendCart = async (req, res) => {
                 </div><br>`
     }
     await transporter.sendMail(mailOptions)
-    await sendMsg(`Hola ${user.name}!, tu pedido N° ${cart.timestamp} fue recibido y se encuentra en proceso!`,'+14793365162',process.env.PHONE)
-    await sendMsg(`Pedido de ${user.name}\n ${arrayItemsMsg}\n Total: ${total} U$S `,'whatsapp:+14155238886',`whatsapp:${process.env.WHATSAPP_PHONE}`)
+    // await sendMsg(`Hola ${user.name}!, tu pedido N° ${cart.timestamp} fue recibido y se encuentra en proceso!`,'+14793365162',process.env.PHONE)
+    // await sendMsg(`Pedido de ${user.name}\n ${arrayItemsMsg}\n Total: ${total} U$S `,'whatsapp:+14155238886',`whatsapp:${process.env.WHATSAPP_PHONE}`)
     await containerCarts.deleteById(id_cart)
     res.redirect('/productos')
     // res.status(200).json({ message: 'Pedido enviado' })

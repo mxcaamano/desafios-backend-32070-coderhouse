@@ -1,5 +1,5 @@
-const Contenedor = require('../containers/contenedor')
-const contenedor = new Contenedor('./src/db/messages.txt')
+const ContenedorArchivo = require('../containers/ContenedorArchivo')
+const contenedor = new ContenedorArchivo('./src/db/messages.txt')
 const userModel = require('../models/user.model');
 // const messagesModel = require("../db/models/messages.models")
 const logger = require('../utils/logger')
