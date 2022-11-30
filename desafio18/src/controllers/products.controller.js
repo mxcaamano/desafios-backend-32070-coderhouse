@@ -64,7 +64,7 @@ const deleteProduct = async (req, res) => {
     found
     ? (await containerProds.deleteById(id),
     res.status(200).json({ message: 'Producto eliminado' }))     
-    : res.status(400).json({ message: 'El producto no existe' })
+    : res.status(400).json({ error: 'El producto no existe' })
     }
     else{
         res.status(403).json({ error: 'No posee privilegios para realizar esta operación' });
