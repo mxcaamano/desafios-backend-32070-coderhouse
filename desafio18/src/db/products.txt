@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Placa de video AMD ASRock Challenger Radeon RX 6700 Series RX 6700 XT RX6700XT CLD 12GO OC Edition 12GB",
+    "price": 482,
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_925228-MLA49727654203_042022-F.webp",
+    "code": "34820172",
+    "stock": 25,
+    "id": "1",
+    "timestamp": 1661391123830
+  },
+  {
+    "title": "Placa de video Nvidia Evga XC Gaming GeForce RTX 30 Series RTX 3060 12G-P5-3657-KR 12GB",
+    "price": 485,
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_962222-MLA46231520852_062021-F.webp",
+    "code": "1434550011",
+    "stock": 40,
+    "id": "2",
+    "timestamp": 1661391123677
+  },
+  {
+    "title": "Motherboard Para Mineria Z590 Btc Duo 12 Gpu Placas Pcreg",
+    "price": 220,
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_608027-MLA49924296716_052022-F.webp",
+    "code": "123412241",
+    "stock": 47,
+    "id": "3",
+    "timestamp": 1661391111274
+  },
+  {
+    "title": "Placa de video xxxxxxxxxx",
+    "price": 272,
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+    "thumbnail": "https://imagen.com/dlfjeuu22.webp",
+    "code": "72727272",
+    "stock": 55,
+    "id": "4",
+    "timestamp": 1661395249211
+  },
+  {
+    "title": "Placa de video xxxxxxxxxx",
+    "price": 272,
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+    "thumbnail": "https://imagen.com/dlfjeuu22.webp",
+    "code": "72727272",
+    "stock": 55,
+    "id": "5",
+    "timestamp": 1661395249211
+  }
+]
