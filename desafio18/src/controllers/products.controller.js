@@ -37,7 +37,7 @@ const addProduct = async (req, res) => {
         const product = req.body;
         product.title && product.price && !isNaN(product.price) && product.description && product.thumbnail && product.code && product.stock && !isNaN(product.stock)
         ? (product.price = parseFloat(product.price), product.timestamp = Date.now(), res.json(await containerProds.save(product)))
-        : res.status(400).json({ error: 'Se requiere titulo, precio(debe ser numero), descripción, url de imagen, codigo y stock(debe ser numero)' });
+        : res.status(400).json({ error: 'Campos incompletos o incorrectos' });
     }
     else{
         res.status(403).json({ error: 'No posee privilegios para realizar esta operación' });
@@ -50,7 +50,7 @@ const updateProduct = async (req, res) => {
     const { title, price, description, thumbnail, code, stock  } = req.body
     title && price && !isNaN(price) && description && thumbnail && code && stock && !isNaN(stock)
     ? res.json(await containerProds.updateById(id, {title, price, description, thumbnail, code, stock, timestamp: Date.now()}))
-    : res.status(400).json({ error: 'Se requiere titulo, precio(debe ser numero), descripción, url de imagen, codigo y stock(debe ser numero)' });
+    : res.status(400).json({ error: 'Campos incompletos o incorrectos' });
     }
     else{
         res.status(403).json({ error: 'No posee privilegios para realizar esta operación' });
