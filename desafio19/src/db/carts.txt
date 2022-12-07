@@ -1,0 +1,22 @@
+[
+  {
+    "email": "mcaamano@deercrypto.com",
+    "address": "Cuenca 2078, CABA 1416",
+    "products": [
+      {
+        "title": "Motherboard Para Mineria Z590 Btc Duo 12 Gpu Placas Pcreg",
+        "price": 220,
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis corporis inventore maxime tempore ipsum magnam, asperiores molestias sed quisquam laboriosam nobis pariatur, placeat consequatur labore reprehenderit fugiat voluptates autem sunt.",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_608027-MLA49924296716_052022-F.webp",
+        "code": "123412241",
+        "stock": 47,
+        "id": 1,
+        "timestamp": 1661391111274,
+        "_id": "3",
+        "qty": 4
+      }
+    ],
+    "timestamp": 1669261712397,
+    "id": "cfa69f18-1719-4024-b8a9-0248db266785"
+  }
+]
