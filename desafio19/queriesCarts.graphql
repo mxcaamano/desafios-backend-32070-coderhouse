@@ -1,0 +1,74 @@
+mutation{
+  createCart(data:
+  {
+    email: "graphiqlTestCarts@coderhouse.com",
+    address: "testaddress 1234"
+  }) {
+    email,
+    address,
+    products {
+      id,
+      title,
+      price,
+      description,
+      thumbnail,
+      code,
+      timestamp,
+      qty
+    }
+    timestamp,
+  }
+}
+
+query{
+  getCart(email: "mcaamano@deercrypto.com") {
+    id,
+    email,
+    address,
+    products {
+      id,
+      title,
+      price,
+      description,
+      thumbnail,
+      code,
+      timestamp,
+      qty
+    },
+    timestamp
+  }
+}
+
+mutation{
+  updateCart(
+    dataProd:{
+      id_prod: "6392a9e9ff0801ebd1616883",
+      qty: 5
+    },
+    data:{
+      email: "graphiqlTestCarts@coderhouse.com",
+      address: "testaddress 1234"
+    }
+  ) {
+    id,
+    email,
+    address,
+    products {
+      id,
+      title,
+      price,
+      description,
+      thumbnail,
+      code,
+      timestamp,
+      qty
+    },
+    timestamp
+  }
+}
+
+mutation{
+  deleteCartProduct(id: "637ee9270b2aee46e5126858", id_prod: "d60a50efec96ffc637bd" ){
+    delete
+  }
+}

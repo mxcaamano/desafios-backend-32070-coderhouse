@@ -15,8 +15,8 @@ const cartsSchema = buildSchema(`
         description: String,
         thumbnail: String,
         code: String,
-        stock: Int,
-        timestamp: String
+        timestamp: String,
+        qty: Int
     }
     type Delete{
         delete: Int
@@ -36,7 +36,8 @@ const cartsSchema = buildSchema(`
         createCart(data: cartInput): Cart
         deleteCart(email: String): Delete
         updateCart(dataProd: productInput, data: cartInput): Cart
-        }
+        deleteCartProduct(id: String, id_prod: String): Delete
+    }
 `)
 
 module.exports = cartsSchema;

@@ -1,0 +1,70 @@
+query{
+  getProducts {
+    id,
+    title,
+    price,
+    description,
+    thumbnail,
+    code,
+    stock
+  }
+}
+
+mutation{
+  addProduct(data:
+    {
+      title: "Nuevo producto desde graphiql",
+      price: 241,
+      description: "descripcion de producto de prueba desde graphiql",
+      thumbnail: "https://www.imagen.com/img2.jpg",
+      code: "ss3ee231",
+      stock: 3
+    }
+  ) {
+    id,
+    title,
+    price,
+    description,
+    thumbnail,
+    code,
+    stock
+  }
+}
+
+query{
+  getProductById(id:"6392a89fff0801ebd1616881")
+{
+    id,
+    title,
+    price,
+    description,
+    thumbnail,
+    code,
+    stock
+  }
+}
+
+mutation{
+  updateProduct(id: "6392a89fff0801ebd1616881",
+  data:{
+    title: "producto desde graphiql MODIFICADO",
+    price: 909,
+    description: "descripcion de producto desde graphiql",
+    thumbnail: "https://www.imagen.com/img.jpg",
+    code: "223sskdee22",
+    stock: 35
+  }
+  )
+}
+
+mutation{
+  deleteProduct(id: "6392a89fff0801ebd1616881") {
+    delete
+  }
+}
+
+mutation{
+  deleteAllProducts{
+    delete
+  }
+}

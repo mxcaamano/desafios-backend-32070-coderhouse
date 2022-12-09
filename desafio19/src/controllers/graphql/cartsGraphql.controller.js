@@ -5,10 +5,11 @@
 const businessCarts = require('../../business/businessCarts')
 const containerCarts = businessCarts
 const { containerProds } = require('../products.controller');
-const userModel = require('../../models/user.model');
 const logger = require('../../utils/logger');
+const crypto = require('crypto')
 
 const createCart = async ({data}) => {
+    logger.info(`Ruta: createCart, Método: POST`)
     const { email, address } = data
     const cart = await containerCarts.getByEmail(email)
     if(cart){
@@ -23,6 +24,7 @@ const createCart = async ({data}) => {
 }
 
 const deleteCart = async ({id}) => {
+    logger.info(`Ruta: deleteCart, Método: DELETE`)
     const cart = await containerCarts.getById(id)
     return cart
     && (await containerCarts.deleteById(cart.id))
@@ -42,6 +44,7 @@ const getCart = async ({email}) => {
 }
 
 const updateCart = async ({dataProd, data}) => {
+    logger.info(`Ruta: updateCart, Método: PUT`)
     const { id_prod, qty } = dataProd
     const { email, address } = data
     await createCart({data})
@@ -50,10 +53,9 @@ const updateCart = async ({dataProd, data}) => {
     process.env.DATABASE === 'file' 
     ? product = await containerProds.getById(id_prod)
     : product = await containerProds.getNative(id_prod)
-    console.log(product)
     if(product){
         product._id = id_prod
-        product.id = cart.products.length + 1
+        product.id = crypto.randomBytes(10).toString('hex');
         product.qty = parseInt(qty)
         cart.products.push(product)
         await containerCarts.updateById(cart.id, {products: cart.products, timestamp: cart.timestamp})
@@ -61,18 +63,15 @@ const updateCart = async ({dataProd, data}) => {
     }
 }
 
-const deleteCartProduct = async (req, res) => {
-    const id = req.params.id
-    const id_prod = req.params.id_prod
+const deleteCartProduct = async ({id, id_prod}) => {
     const cart = await containerCarts.getById(id)
-    const product = cart.products.find(p => p._id == id_prod)
+    const product = cart.products.find(p => p.id == id_prod)
     if(product){
     const productsArr = cart.products.filter(p => p !== product)
-    res.status(200).json({ message: 'Producto eliminado del carrito' })
-    res.json(await containerCarts.updateById(id, {timestamp: cart.timestamp, products: productsArr}))
-    }
-    else{
-        res.status(400).json({ message: 'El producto seleccionado no existe en el carrito' })
+    cart.products = productsArr
+    logger.info("Producto eliminado del carrito")
+    await containerCarts.updateById(id, {timestamp: cart.timestamp, products: productsArr})
+    return cart
     }
 }
 
