@@ -34,15 +34,11 @@ router.use('/profile', authMiddleware, routerProfile);
 const { graphqlHTTP } = require('express-graphql')
 const routerProductsGraphql = require('./graphql/productsGraphql.router');
 const routerCartsGraphql = require('./graphql/cartsGraphql.router');
-const routerMsgsGraphql = require('./graphql/messagesGraphql.router');
 const routerProfileGraphql = require('./graphql/profileGraphql.router');
-// const { routerInfoGraphql } = require('./graphql/routerInfoGraphql.router');
 
 router.use('/productosGraphQL', graphqlHTTP(routerProductsGraphql));
 router.use('/carritoGraphQL', graphqlHTTP(routerCartsGraphql));
-router.use('/chatGraphQL', graphqlHTTP(routerMsgsGraphql));
 router.use('/profileGraphQL', graphqlHTTP(routerProfileGraphql));
-// router.use('/infoGraphQL', graphqlHTTP(routerInfoGraphql));
 
 module.exports = router
 

@@ -1,17 +1,26 @@
-const { Router } = require("express")
-const { createCart, deleteCart, getCart, updateCart, deleteCartProduct, sendCart } = require("../../controllers/graphql/cartsGraphql.controller")
+// const { Router } = require("express")
+const { createCart, deleteCart, getCart, updateCart, deleteCartProduct } = require("../../controllers/graphql/cartsGraphql.controller")
+const cartsSchema = require('./schema/carts.schema')
+// const routerCartsGraphql = Router()
 
-const routerCartsGraphql = Router()
+// routerCartsGraphql.delete('/', deleteCart)
+// routerCartsGraphql.get('/', getCart, createCart)
+// routerCartsGraphql.put('/', updateCart)
+// routerCartsGraphql.delete('/:id/productos/:id_prod', deleteCartProduct)
+// routerCartsGraphql.post('/', sendCart)
 
-// routerCartsGraphql.post('/', createCart)
-routerCartsGraphql.delete('/', deleteCart)
-routerCartsGraphql.get('/', getCart, createCart)
-routerCartsGraphql.put('/', updateCart)
-routerCartsGraphql.delete('/:id/productos/:id_prod', deleteCartProduct)
-routerCartsGraphql.post('/', sendCart)
-// routerCartsGraphql.post('/', createCart)
-// routerCartsGraphql.delete('/:id', deleteCart)
-// routerCartsGraphql.get('/:id/productos', getCart)
-// routerCartsGraphql.put('/:id/productos', updateCart)
+cartsGraphql = {
+    createCart: createCart,
+    deleteCart: deleteCart,
+    getCart: getCart,
+    updateCart: updateCart,
+    deleteCartProduct: deleteCartProduct
+}
+
+routerCartsGraphql = {
+    schema: cartsSchema,
+    rootValue: cartsGraphql,
+    graphiql: true
+}
 
 module.exports = routerCartsGraphql
