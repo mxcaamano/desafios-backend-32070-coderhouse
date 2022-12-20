@@ -1,16 +1,13 @@
 const logger = require('../../utils/logger')
+const cookies = ['koa.sess', 'koa.sess.sig']
 
 const getLogout = (ctx) => {
     try {
         logger.info(`Ruta: ${ctx.request.url}, Método: ${ctx.request.method}`)
-        ctx.session.destroy((err) => {
-          // if (err) {
-          //   res.status(500).json({ message: err.message});
-          // }
-          return ctx.redirect('/login');
-        });
+        cookies.forEach(e => {ctx.cookies.set(e,'')})
+        return ctx.redirect('/login');
       } catch (err) {
-        // res.status(500).json({ message: err.message });
+        ctx.body = { message: err.message }
       }
 };
 

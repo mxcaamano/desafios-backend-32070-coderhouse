@@ -5,14 +5,15 @@ const logger = require('../../utils/logger')
 // Variable de Permisos de Administrador
 const isAdmin = true
 
-const getProducts = async (ctx) => {
+const getProducts = async (ctx, next) => {
     logger.info(`Ruta: ${ctx.request.url}, Método: ${ctx.request.method}`)
     const products = await containerProds.getAll();
     
     // Render Koa
     let state = null
     products ? state = true : state = false
-    await ctx.render('pages/products', {listExist: state, list: products});
+    ctx.body = products
+    await ctx.render('pages/products', {listExist: state, list: products})
     
     // JSON
     // return products 

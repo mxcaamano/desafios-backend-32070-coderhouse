@@ -12,9 +12,8 @@ const transporter = require('../../utils/nodemailer.config')
 // const sendMsg = require('../../utils/twilio.config')
 
 const createCart = async (ctx) => {
-    // const user = await userModel.findOne({_id: ctx.request.session.passport.user});
-    // const cart = await containerCarts.getByEmail(user.email)
-    const cart = await containerCarts.getByEmail("mcaamano@deercrypto.com")
+    const user = await userModel.findOne({_id: ctx.req.user});
+    const cart = await containerCarts.getByEmail(user.email)
     if(cart){
         logger.info("El carrito ya existe")
     }
@@ -38,9 +37,8 @@ const deleteCart = async (ctx) => {
 
 const getCart = async (ctx) => {
     logger.info(`Ruta: ${ctx.request.url}, Método: ${ctx.request.method}`)
-    // const user = await userModel.findOne({_id: ctx.request.session.passport.user});
-    // const cart = await containerCarts.getByEmail(user.email)
-    const cart = await containerCarts.getByEmail("mcaamano@deercrypto.com")
+    const user = await userModel.findOne({_id: ctx.req.user});
+    const cart = await containerCarts.getByEmail(user.email);
     if(cart){
         state = true;
         const qtyItems = cart.products.reduce((prev, curr) => prev + curr.qty, 0);
@@ -58,10 +56,9 @@ const getCart = async (ctx) => {
 
 const updateCart = async (ctx) => {
     const { id_prod, qty } = ctx.request.body
-    // const user = await userModel.findOne({_id: ctx.request.session.passport.user});
+    const user = await userModel.findOne({_id: ctx.req.user});
     await createCart(ctx)
-    // let cart = await containerCarts.getByEmail(user.email);
-    let cart = await containerCarts.getByEmail("mcaamano@deercrypto.com")
+    let cart = await containerCarts.getByEmail(user.email);
     let product = null
     process.env.DATABASE === 'file' 
     ? product = await containerProds.getById(id_prod)
@@ -101,9 +98,8 @@ const deleteCartProduct = async (ctx) => {
 
 const sendCart = async (ctx) => {
     const { id_cart, total } = ctx.request.body
-    // const user = await userModel.findOne({_id: ctx.request.session.passport.user});
-    // const cart = await containerCarts.getByEmail(user.email)
-    const cart = await containerCarts.getByEmail("mcaamano@deercrypto.com")
+    const user = await userModel.findOne({_id: ctx.req.user});
+    const cart = await containerCarts.getByEmail(user.email)
     let arrayItems = "";
     let arrayItemsMsg = "";
     let n;

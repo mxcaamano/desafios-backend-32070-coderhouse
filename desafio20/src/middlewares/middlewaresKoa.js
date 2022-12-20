@@ -8,8 +8,8 @@ const userMiddleware = async (ctx, next) => {
   ctx.redirect('/signup/error');
 };
 
-const authMiddleware = (ctx, next) => {
-  ctx.isAuthenticated() ? next() : ctx.redirect('/login')
+const authMiddleware = async(ctx, next) => {
+  await ctx.isAuthenticated() ? await next() : await ctx.redirect('/login')
 };
 
 module.exports = { userMiddleware, authMiddleware };

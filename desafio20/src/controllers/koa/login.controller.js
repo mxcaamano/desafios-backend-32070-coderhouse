@@ -9,13 +9,12 @@ const getLogin = async (ctx) => {
 const postLogin = (ctx) => {
   logger.info(`Ruta: ${ctx.request.url}, Método: ${ctx.request.method}`);
   ctx.redirect('/productos');
-  // passport.authenticate('login', {
-  //   successRedirect: '/productos',
-  //   failureRedirect: '/login-error',
-  //   passReqToCallback: true,
-  // })
+  passport.authenticate('login', {
+    successRedirect: '/productos',
+    failureRedirect: '/login-error',
+    passReqToCallback: true,
+  })
 };
-
 
 const getFailLogin = async (ctx) => {
   logger.info(`Ruta: ${ctx.request.url}, Método: ${ctx.request.method}`)

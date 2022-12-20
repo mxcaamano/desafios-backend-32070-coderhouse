@@ -8,7 +8,7 @@ router.post('/login', passport.authenticate('login',{
     successRedirect: '/productos',
     failureRedirect: '/login/error',
     passReqToCallback: true
-},));
+}));
 router.get('/login/error', getFailLogin);
 
 module.exports = router;
