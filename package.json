@@ -4,9 +4,7 @@
   "description": "",
   "main": "desafio01.js",
   "scripts": {
-    "start": "node ./desafio18/server.js",
-    "test-manual": "node ./desafio18/test/axiosTest.js",
-    "test": "mocha ./desafio18/test/mocha-chai-Test.js"
+    "start": "node ./desafio20/serverKoa.js"
   },
   "repository": {
     "type": "git",

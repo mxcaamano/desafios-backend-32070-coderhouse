@@ -265,3 +265,6 @@
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"stringValue":"\"undefined\"","value":"undefined","valueType":"string"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"stringValue":"\"undefined\"","value":"undefined","valueType":"string"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"stringValue":"\"6387a1e0252wb1683d1aebb1d\"","value":"6387a1e0252wb1683d1aebb1d","valueType":"string"}
+{"code":11000,"index":0,"keyPattern":{"title":1},"keyValue":{"title":"Producto para test desde axios"},"level":"error"}
+{"code":11000,"index":0,"keyPattern":{"title":1},"keyValue":{"title":"Producto para test desde axios"},"level":"error"}
+{"code":11000,"index":0,"keyPattern":{"title":1},"keyValue":{"title":"Producto para test desde axios"},"level":"error"}
